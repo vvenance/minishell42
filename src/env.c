@@ -41,11 +41,9 @@ static void	free_var(char **tab, t_env **tmpenv)
 	ft_free_tab(tab);
 }
 
-void		ft_env(char *line, t_env **env, t_env **tmpenv, int i)
+char		**get_proper_tab(char *line)
 {
 	char	**tab;
-	int		j;
-	char	**pairval;
 
 	tab = NULL;
 	tab = ft_strsplit(line, ' ');
@@ -54,6 +52,16 @@ void		ft_env(char *line, t_env **env, t_env **tmpenv, int i)
 		ft_free(1, &tab[1]);
 		tab[1] = NULL;
 	}
+	return (tab);
+}
+
+void		ft_env(char *line, t_env **env, t_env **tmpenv, int i)
+{
+	char	**tab;
+	int		j;
+	char	**pairval;
+
+	tab = get_proper_tab(line);
 	if (tab[1] && ft_strcmp(tab[1], "-i"))
 		cpy_env(env, tmpenv);
 	else
