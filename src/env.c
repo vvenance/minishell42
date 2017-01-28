@@ -49,18 +49,11 @@ void		ft_env(char *line, t_env **env, t_env **tmpenv, int i)
 
 	tab = NULL;
 	tab = ft_strsplit(line, ' ');
-	ft_putendl("test");
 	if (ft_strlen(line) == 3)
 	{
 		ft_free(1, &tab[1]);
 		tab[1] = NULL;
 	}
-	// j = 0;
-	// while (tab[j])
-	// {
-	// 	ft_putendl(tab[j]);
-	// 	j++;
-	// }
 	if (tab[1] && ft_strcmp(tab[1], "-i"))
 		cpy_env(env, tmpenv);
 	else
@@ -70,12 +63,10 @@ void		ft_env(char *line, t_env **env, t_env **tmpenv, int i)
 		add_env_elem(tmpenv, pairval[0], pairval[1]);
 		ft_free_tab(pairval);
 	}
-		ft_putendl("test2");
 	if (!tab[i])
 		wich_display(env, tmpenv);
 	else
 	{
-		ft_putendl("plouf");
 		j = i;
 		while (tab[++i])
 			tab[j] = str_join_char(tab[j], tab[i], ' ');
