@@ -43,7 +43,7 @@ void		ft_cd(char *line, t_env **env);
 void		ft_echo(char *line, t_env **env);
 void		ft_env(char *line, t_env **env, t_env **tmpenv, int i);
 void		ft_exec(char *line, t_env **env, int pid, int status);
-void	ft_exit(t_env **env, char *line);
+void	ft_exit(t_env **env, char *line, t_env **tmpenv);
 void	ft_setenv(char *line, t_env	**env);
 void	ft_unsetenv(char *line, t_env **env);
 void	del_env_elem(t_env **env, char *data);

@@ -6,7 +6,7 @@ void	builtin_or_exec(char *line, t_env **env, t_env **tmpenv)
 		!line[4]))
 		ft_echo(line, env);
 	else if (line[0] == 'e' && !ft_strcmp(line, "exit") && !line[4])
-		ft_exit(env, line);
+		ft_exit(env, line, tmpenv);
 	else if (*env == NULL && (!ft_strncmp("cd", line, 2) || !ft_strncmp("env", line, 3)
 		|| !ft_strncmp("setenv", line, 6) || !ft_strncmp("unsetenv", line, 8)))
 		ft_putendl_fd("minishell: no env defined." ,2);
