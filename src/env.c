@@ -12,7 +12,7 @@ static void	cpy_env(t_env **env, t_env **tmpenv)
 	}
 }
 
-static int	find_equal(char	**pairval, char *str)
+static int	find_equal(char	***pairval, char *str)
 {
 	int i;
 
@@ -21,7 +21,7 @@ static int	find_equal(char	**pairval, char *str)
 		i++;
 	if (str[i] == '=')
 	{
-		pairval = ft_strsplit(str, '=');
+		*pairval = ft_strsplit(str, '=');
 		return (1);
 	}
 	return (0);
@@ -38,6 +38,7 @@ static void	wich_display(t_env **env, t_env **tmpenv)
 static void	free_var(char **tab, t_env **tmpenv)
 {
 	clear_env(tmpenv);
+	tmpenv = NULL;
 	ft_free_tab(tab);
 }
 
@@ -66,7 +67,7 @@ void		ft_env(char *line, t_env **env, t_env **tmpenv, int i)
 		cpy_env(env, tmpenv);
 	else
 		i+= 1;
-	while (tab[i] && tab[++i] && find_equal(pairval, tab[i]))
+	while (tab[i] && tab[++i] && find_equal(&pairval, tab[i]))
 	{
 		add_env_elem(tmpenv, pairval[0], pairval[1]);
 		ft_free_tab(pairval);

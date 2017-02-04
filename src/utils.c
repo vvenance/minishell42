@@ -30,7 +30,7 @@ void	add_env_elem(t_env **env, char *name, char *value)
 
 	tmp = *env;
 	new = NULL;
-	while (tmp && tmp->next && ft_strcmp((*env)->var, name))
+	while (tmp && tmp->next && tmp->var && ft_strcmp(tmp->var, name))
 		tmp = tmp->next;
 	if (!tmp || !tmp->next)
 	{
