@@ -20,7 +20,7 @@ int main(int ac, char **av, char **envp)
 		get_next_line(0, &line);
 		line = clean_user_entry(line);
 		builtin_or_exec(line, &env, &tmpenv);
-		ft_free(1, &line);
+		ft_free(2, &line, &tmpenv);
 	}
 	return (0);
 }
