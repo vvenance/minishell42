@@ -3,13 +3,9 @@
 static t_cd	*init_cd(t_cd *cd)
 {
 	cd = malloc(sizeof(t_cd));
-	cd->home = malloc(sizeof(t_env));
-	cd->pwd = malloc(sizeof(t_env));
-	cd->oldpwd = malloc(sizeof(t_env));
 	cd->home = NULL;
 	cd->pwd = NULL;
 	cd->oldpwd = NULL;
-	cd->tmp.value = malloc(sizeof(char *));
 	return (cd);
 }
 
@@ -98,11 +94,11 @@ void		ft_cd(char *line, t_env **env)
 		{
 			cd->tmp.value = ft_memalloc(400);
 			getcwd(cd->tmp.value, 399);
-			cd->oldpwd->value = realloc_str(cd->oldpwd->value, cd->pwd->value); //a verifier changements fctn
-			cd->pwd->value = realloc_str(cd->pwd->value, cd->tmp.value); // idem
+			cd->oldpwd->value = realloc_str(cd->oldpwd->value, cd->pwd->value);
+			cd->pwd->value = realloc_str(cd->pwd->value, cd->tmp.value);
 			ft_free(1, &cd->tmp.value);
 		}
 	}
-	//ft_free(4, &cd->home, &cd->oldpwd, &cd->pwd, &cd);// pb free ici
+	ft_free(1, &cd);
  	ft_free_tab(tab);
 }

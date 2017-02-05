@@ -38,26 +38,27 @@ typedef struct		s_cd
 	t_env			tmp;
 }					t_cd;
 
-void	builtin_or_exec(char *line, t_env **env, t_env **tmpenv);
-void		ft_cd(char *line, t_env **env);
-void		ft_echo(char *line, t_env **env);
-void		ft_env(char *line, t_env **env, t_env **tmpenv, int i);
-void		ft_exec(char *line, t_env **env, int pid, int status);
-void	ft_exit(t_env **env, char *line, t_env **tmpenv);
-void	ft_setenv(char *line, t_env	**env);
-void	ft_unsetenv(char *line, t_env **env);
-void	del_env_elem(t_env **env, char *data);
-void	add_env_elem(t_env **env, char *name, char *value);
-void	clear_env(t_env **env);
-char	**envlist_to_tab(t_env **env);
-void	envtab_to_list(char **envtab, t_env **env);
-void	ft_free_tab(char **tab);
-char	*join_char(char *str, char *str2, char c);
-void	display_list(t_env **env);
-void	display_tab(char **envtab);
-char	*clean_user_entry(char *str);
-char	*realloc_str(char *str, char *newstr);
-void	str_swap(char **str, char **str2);
-char	*str_join_char(char *str1, char *str2, char c);
+void				builtin_or_exec(char *line, t_env **env, t_env **tmpenv);
+void				ft_cd(char *line, t_env **env);
+void				ft_echo(char *line, t_env **env);
+void				ft_env(char *line, t_env **env, t_env **tmpenv, int i);
+void				ft_exec(char *line, t_env **env, int pid, int status);
+void				ft_exit(t_env **env, char *line, t_env **tmpenv);
+void				ft_setenv(char *line, t_env	**env);
+void				ft_unsetenv(char *line, t_env **env);
+void				del_env_elem(t_env **env, char *data);
+void				add_env_elem(t_env **env, char *name, char *value);
+void				clear_env(t_env **env);
+char				**envlist_to_tab(t_env **env);
+void				envtab_to_list(char **envtab, t_env **env);
+void				ft_free_tab(char **tab);
+char				*join_char(char *str, char *str2, char c);
+void				display_list(t_env **env);
+void				display_tab(char **envtab);
+char				*clean_user_entry(char *str);
+char				*realloc_str(char *str, char *newstr);
+void				str_swap(char **str, char **str2);
+char				*str_join_char(char *str1, char *str2, char c);
+char				**get_proper_tab(char *line);
 
 #endif

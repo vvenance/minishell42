@@ -49,7 +49,7 @@ void	display_list(t_env **env)
 	{
 		ft_putstr(tmp->var);
 		ft_putchar('=');
-		if (ft_strcmp(tmp->value, "(null"))
+		if (ft_strcmp(tmp->value, "(null)"))
 			ft_putstr(tmp->value);
 		ft_putendl("");
 		tmp = tmp->next;

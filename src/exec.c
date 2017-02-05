@@ -56,6 +56,13 @@ static int	find_exec(char **tab, t_env **env, int i)
 	return (0);
 }
 
+static void	ft_pid_high_than_zero(int pid, int status)
+{
+	wait(&pid);
+	if (WIFEXITED(status))
+		wait(&pid);
+}
+
 void		ft_exec(char *line, t_env **env, int pid, int status)
 {
 	char	**tab;
@@ -75,14 +82,10 @@ void		ft_exec(char *line, t_env **env, int pid, int status)
 			exit(0);
 		}
 		else if (pid > 0)
-		{
-			wait(&pid);
-			if (WIFEXITED(status))
-				wait(&pid);
-			ft_free_tab(envtab);
-			//ft_free_tab(tab);
-		}
+			ft_pid_high_than_zero(pid, status);
 		else
 			ft_putendl_fd("fork: error", 2);
+		ft_free_tab(envtab);
 	}
+	ft_free_tab(tab);
 }

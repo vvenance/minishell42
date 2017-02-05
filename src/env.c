@@ -42,20 +42,6 @@ static void	free_var(char **tab, t_env **tmpenv)
 	ft_free_tab(tab);
 }
 
-char		**get_proper_tab(char *line)
-{
-	char	**tab;
-
-	tab = NULL;
-	tab = ft_strsplit(line, ' ');
-	if (ft_strlen(line) == 3)
-	{
-		ft_free(1, &tab[1]);
-		tab[1] = NULL;
-	}
-	return (tab);
-}
-
 void		ft_env(char *line, t_env **env, t_env **tmpenv, int i)
 {
 	char	**tab;

@@ -32,7 +32,12 @@ void	add_env_elem(t_env **env, char *name, char *value)
 	new = NULL;
 	while (tmp && tmp->next && tmp->var && ft_strcmp(tmp->var, name))
 		tmp = tmp->next;
-	if (!tmp || !tmp->next)
+	if (tmp && !ft_strcmp(tmp->var, name))
+	{
+		ft_free(1, &tmp->value);
+		tmp->value = ft_strdup(value);
+	}
+	else
 	{
 		if ((new = malloc(sizeof(t_env))))
 		{
@@ -44,11 +49,6 @@ void	add_env_elem(t_env **env, char *name, char *value)
 			*env = new;
 		else
 			tmp->next = new;
-	}
-	else
-	{
-		ft_free(1, &tmp->value);
-		tmp->value = ft_strdup(value);
 	}
 }
 
