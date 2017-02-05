@@ -107,7 +107,6 @@ void		ft_exec(char *line, t_env **env, int pid, int status)
 {
 	char	**tab;
 
-
 	tab = NULL;
 	tab = ft_strsplit(line, ' ');
 	if (tab[0] != NULL)
