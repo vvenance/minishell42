@@ -1,4 +1,16 @@
-# include "../inc/minishell.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   env.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vvenance <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/02/05 15:14:30 by vvenance          #+#    #+#             */
+/*   Updated: 2017/02/05 15:14:32 by vvenance         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../inc/minishell.h"
 
 static void	cpy_env(t_env **env, t_env **tmpenv)
 {
@@ -12,7 +24,7 @@ static void	cpy_env(t_env **env, t_env **tmpenv)
 	}
 }
 
-static int	find_equal(char	***pairval, char *str)
+static int	find_equal(char ***pairval, char *str)
 {
 	int i;
 
@@ -30,7 +42,7 @@ static int	find_equal(char	***pairval, char *str)
 static void	wich_display(t_env **env, t_env **tmpenv)
 {
 	if (*tmpenv == NULL)
-			display_list(env);
+		display_list(env);
 	else
 		display_list(tmpenv);
 }
@@ -52,7 +64,7 @@ void		ft_env(char *line, t_env **env, t_env **tmpenv, int i)
 	if (tab[1] && ft_strcmp(tab[1], "-i"))
 		cpy_env(env, tmpenv);
 	else
-		i+= 1;
+		i += 1;
 	while (tab[i] && tab[++i] && find_equal(&pairval, tab[i]))
 	{
 		add_env_elem(tmpenv, pairval[0], pairval[1]);

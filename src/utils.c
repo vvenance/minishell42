@@ -1,4 +1,16 @@
-# include "../inc/minishell.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vvenance <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/02/05 15:15:37 by vvenance          #+#    #+#             */
+/*   Updated: 2017/02/05 15:15:53 by vvenance         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../inc/minishell.h"
 
 void	del_env_elem(t_env **env, char *data)
 {
@@ -7,16 +19,16 @@ void	del_env_elem(t_env **env, char *data)
 
 	prev = NULL;
 	tmp = *env;
-	while(tmp)
+	while (tmp)
 	{
-		if(!ft_strcmp(data, tmp->var))
+		if (!ft_strcmp(data, tmp->var))
 		{
 			if (!prev)
 				env = &tmp->next;
 			else
 				prev->next = tmp->next;
 			ft_free(3, &tmp->var, &tmp->value, &tmp);
-			break;
+			break ;
 		}
 		prev = tmp;
 		tmp = tmp->next;

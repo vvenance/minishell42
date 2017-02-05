@@ -1,4 +1,16 @@
-# include "../inc/minishell.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   echo.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vvenance <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/02/05 15:14:02 by vvenance          #+#    #+#             */
+/*   Updated: 2017/02/05 15:14:04 by vvenance         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../inc/minishell.h"
 
 static void	echo_dollar(char *line, t_env **env)
 {
@@ -12,7 +24,7 @@ static void	echo_dollar(char *line, t_env **env)
 		if (!ft_strcmp(str, tmp->var))
 		{
 			ft_putstr(tmp->value);
-			break;
+			break ;
 		}
 		tmp = tmp->next;
 	}

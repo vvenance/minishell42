@@ -1,4 +1,16 @@
-# include "../inc/minishell.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils3.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vvenance <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/02/05 15:16:05 by vvenance          #+#    #+#             */
+/*   Updated: 2017/02/05 15:16:06 by vvenance         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../inc/minishell.h"
 
 char	*realloc_str(char *str, char *newstr)
 {
@@ -31,7 +43,7 @@ char	*str_join_char(char *str1, char *str2, char c)
 	return (str1);
 }
 
-char		**get_proper_tab(char *line)
+char	**get_proper_tab(char *line)
 {
 	char	**tab;
 

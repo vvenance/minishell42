@@ -1,6 +1,18 @@
-# include "../inc/minishell.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   setenv.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vvenance <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/02/05 15:15:15 by vvenance          #+#    #+#             */
+/*   Updated: 2017/02/05 15:15:16 by vvenance         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void	ft_setenv(char *line, t_env	**env)
+#include "../inc/minishell.h"
+
+void	ft_setenv(char *line, t_env **env)
 {
 	char	**tab;
 

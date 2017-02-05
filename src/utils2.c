@@ -1,4 +1,16 @@
-# include "../inc/minishell.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils2.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vvenance <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/02/05 15:15:58 by vvenance          #+#    #+#             */
+/*   Updated: 2017/02/05 15:16:00 by vvenance         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../inc/minishell.h"
 
 void	ft_free_tab(char **tab)
 {
@@ -22,7 +34,7 @@ char	*join_char(char *str, char *str2, char c)
 
 	i = ft_strlen(str);
 	i = i + ft_strlen(str2);
-	newstr = malloc(sizeof (char *) * (i + 2));
+	newstr = malloc(sizeof(char *) * (i + 2));
 	i = 0;
 	while (str[i])
 	{

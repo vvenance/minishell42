@@ -22,6 +22,7 @@
 # include <sys/wait.h>
 # include <signal.h>
 # include "../libft/inc/libft.h"
+# define COV cd->oldpwd->value
 
 typedef struct		s_env
 {

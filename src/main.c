@@ -1,6 +1,18 @@
-# include "../inc/minishell.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vvenance <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/02/05 15:15:05 by vvenance          #+#    #+#             */
+/*   Updated: 2017/02/05 15:15:07 by vvenance         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int main(int ac, char **av, char **envp)
+#include "../inc/minishell.h"
+
+int	main(int ac, char **av, char **envp)
 {
 	t_env	*env;
 	t_env	*tmpenv;

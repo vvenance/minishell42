@@ -1,4 +1,16 @@
-# include "../inc/minishell.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cd.c                                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vvenance <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/02/05 15:13:49 by vvenance          #+#    #+#             */
+/*   Updated: 2017/02/05 15:13:50 by vvenance         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../inc/minishell.h"
 
 static t_cd	*init_cd(t_cd *cd)
 {
@@ -57,7 +69,7 @@ static void	norme_cd(char **tab, t_cd *cd)
 				error_chdir(cd->home->value);
 			else
 			{
-				cd->oldpwd->value = realloc_str(cd->oldpwd->value, cd->pwd->value);
+				COV = realloc_str(cd->oldpwd->value, cd->pwd->value);
 				cd->pwd->value = realloc_str(cd->pwd->value, cd->home->value);
 			}
 		}
@@ -82,9 +94,9 @@ void		ft_cd(char *line, t_env **env)
 	tab = ft_strsplit(line, ' ');
 	cd = init_cd(cd);
 	if (tab[1] != NULL && tab[2] != NULL)
- 		ft_putendl_fd("minishell/cd: too many arguments", 2);
- 	find_cd_var(&cd, env);
- 	if (tab[1] == NULL || !ft_strcmp(tab[1], "-"))
+		ft_putendl_fd("minishell/cd: too many arguments", 2);
+	find_cd_var(&cd, env);
+	if (tab[1] == NULL || !ft_strcmp(tab[1], "-"))
 		norme_cd(tab, cd);
 	else
 	{
@@ -100,5 +112,5 @@ void		ft_cd(char *line, t_env **env)
 		}
 	}
 	ft_free(1, &cd);
- 	ft_free_tab(tab);
+	ft_free_tab(tab);
 }
