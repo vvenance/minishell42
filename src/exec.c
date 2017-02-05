@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../inc/minishell.h"
+#include <stdio.h>
 
 static int	get_exec(char *line, char **tab)
 {
@@ -62,8 +63,6 @@ static int	find_exec(char **tab, t_env **env, int i)
 			return (1);
 		}
 	}
-	ft_putstr_fd("minishell: command not found: ", 2);
-	ft_putendl_fd(tab[0], 2);
 	ft_free_tab(array);
 	return (0);
 }
@@ -75,12 +74,10 @@ static void	ft_pid_high_than_zero(int pid, int status)
 		wait(&pid);
 }
 
-void		ft_exec(char *line, t_env **env, int pid, int status)
+static void	ft_exec_norme(char **tab, int pid, int status, t_env **env)
 {
-	char	**tab;
 	char	**envtab;
 
-	tab = ft_strsplit(line, ' ');
 	if (find_exec(tab, env, -1))
 	{
 		envtab = envlist_to_tab(env);
@@ -99,5 +96,21 @@ void		ft_exec(char *line, t_env **env, int pid, int status)
 			ft_putendl_fd("fork: error", 2);
 		ft_free_tab(envtab);
 	}
+	else if (strcmp(tab[0], "(null)"))
+	{
+		ft_putstr_fd("minishell: command not found: ", 2);
+		ft_putendl_fd(tab[0], 2);
+	}
+}
+
+void		ft_exec(char *line, t_env **env, int pid, int status)
+{
+	char	**tab;
+
+
+	tab = NULL;
+	tab = ft_strsplit(line, ' ');
+	if (tab[0] != NULL)
+		ft_exec_norme(tab, pid, status, env);
 	ft_free_tab(tab);
 }
